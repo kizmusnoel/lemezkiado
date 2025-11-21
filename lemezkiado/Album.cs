@@ -18,21 +18,19 @@ namespace Lemezkiado
         public float price { get; set; }
         public int streams { get; set; }
         public int copiesSold { get; set; }
-        public string genre { get; set; }
+        public string genre { get; set; } = "";
         public bool explicitAlbum { get; set; }
         public string[] trackList { get; set; } = [];
 
-        //public void List<Album> LoadFromJson(string filename)
-        //{
-        //    var jsonContent = System.IO.File.ReadAllText(filename, Encoding.UTF8);
-        //    /*
-        //    var albums = JsonSerializer.Deserialize<List<Album>>(jsonContent, new JsonSerializerOptions()
-        //    {
-        //        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-        //    });
-        //    */
-        //    return albums ?? new List<Album>();
+        public static List<Album> LoadFromJson(string filename)
+        {
+            var jsonContent = System.IO.File.ReadAllText(filename, Encoding.UTF8);
+            var albums = JsonSerializer.Deserialize<List<Album>>(jsonContent, new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            });
+            return albums ?? new List<Album>();
 
-        //}
+        }
     }
 }

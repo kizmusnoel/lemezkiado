@@ -17,7 +17,7 @@ namespace Lemezkiado
     public partial class MainWindow : Window
     {
 
-        //List<Album> albums = Album.LoadFromJson("albums.json");
+        List<Album> albums = Album.LoadFromJson("albums.json");
         
 
         public MainWindow()
