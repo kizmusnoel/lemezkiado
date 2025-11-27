@@ -1,5 +1,4 @@
-{
-  "abbey_road_lemezek": [
+[
     {
       "id": 1,
       "albumName": "Abbey Road",
@@ -30,5 +29,4 @@
         "Her Majesty"
       ]
     }
-  ]
-}
+]

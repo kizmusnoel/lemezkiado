@@ -24,5 +24,10 @@ namespace Lemezkiado
         {
             InitializeComponent();
         }
+
+        private void srcBtnClick(object sender, RoutedEventArgs e)
+        {
+            srcMenu.disp;
+        }
     }
 }
