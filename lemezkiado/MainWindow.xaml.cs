@@ -25,6 +25,7 @@ namespace Lemezkiado
             InitializeComponent();
             srcMenu.Visibility = Visibility.Visible;
             newAlbumMenu.Visibility = Visibility.Collapsed;
+            albums.Sort();
             albumsListBox.ItemsSource = albums;
 
         }
@@ -49,6 +50,23 @@ namespace Lemezkiado
             srcBox.Opacity = 1;
         }
 
+        private void srcBoxLostFocus(object sender, RoutedEventArgs e)
+        {
+            srcBox.Opacity = 0.6;
+        }
+
+        public static bool AlbumHasText(Album album, string search)
+        {
+            if (album.albumName.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                album.artistName.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                Convert.ToString(album.releaseDate).Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                album.genre.Contains(search, StringComparison.OrdinalIgnoreCase) ||
+                album.trackList.Any(item =>
+                item.Contains(search, StringComparison.OrdinalIgnoreCase))) return true;
+
+            return false;
+        }
+
         protected void srcBoxTextChanged(object sender, TextChangedEventArgs e)
         {
             List<Album> filteredAlbums = new List<Album>();
@@ -59,9 +77,10 @@ namespace Lemezkiado
 
                 foreach (var item in albums)
                 {
-                    if (item.albumName.Contains(srcBox.Text)) filteredAlbums.Add(item);
+
+                    if (AlbumHasText(item, srcBox.Text)) filteredAlbums.Add(item);
                 }
-            albumsListBox.ItemsSource = filteredAlbums;
+                albumsListBox.ItemsSource = filteredAlbums;
             }
 
 

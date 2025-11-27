@@ -105,9 +105,9 @@
         </Button>
         <Grid Name="srcMenu" Height="450" Width="800">
 
-            <TextBox TextChanged="srcBoxTextChanged" HorizontalAlignment="Left" Name="srcBox" Opacity="0.6" GotFocus="srcBoxGotFocus" Margin="48,76,0,0" TextWrapping="Wrap" Text="Keresés..." VerticalAlignment="Top" FontSize="20" Width="295" Height="30"/>
+            <TextBox TextChanged="srcBoxTextChanged" HorizontalAlignment="Left" Name="srcBox" Opacity="0.6" LostFocus="srcBoxLostFocus" GotFocus="srcBoxGotFocus" Margin="48,76,0,0" TextWrapping="Wrap" Text="Keresés..." VerticalAlignment="Top" FontSize="20" Width="295" Height="30"/>
 
-            <ListBox Name="albumsListBox" Margin="48,106,457,68" DisplayMemberPath="albumName"
+            <ListBox Name="albumsListBox" Margin="48,106,457,68" DisplayMemberPath="Display"
          SelectedValuePath="id"/>
 
         </Grid>

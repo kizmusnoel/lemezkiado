@@ -22,7 +22,9 @@ namespace Lemezkiado
         public string genre { get; set; } = "";
         public bool explicitAlbum { get; set; }
         public string[] trackList { get; set; } = [];
-       
+
+        public string Display => $"{albumName} ({releaseDate}) - {artistName}";
+
         public static List<Album> LoadFromJson(string filename)
         {
             using StreamReader file = new StreamReader(filename);
