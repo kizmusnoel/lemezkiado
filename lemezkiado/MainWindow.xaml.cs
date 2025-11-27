@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -89,6 +91,80 @@ namespace Lemezkiado
                 albumsListBox.ItemsSource = filteredAlbums;
             }
 
+
+        }
+
+        private void updateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var errorMSG = "";
+            if (albumNameTXT.Text.Trim() == "")
+            {
+                errorMSG += "Kérem ajda meg az album nevét!";
+
+            }
+            if (artistNameTXT.Text.Trim() == "")
+            {
+                errorMSG += "Kérem adja meg az előadó nevét!";
+
+            }
+            if (releaseDateTXT.Text.Trim() == "")
+            {
+                errorMSG += "Kérem adja meg a megjelenés évét!";
+
+            }
+            if (priceTXT.Text.Trim() == "")
+            {
+                errorMSG += "Kérem adja meg az album árát!";
+
+            }
+            if (streamsTXT.Text.Trim() == "")
+            {
+                errorMSG += "Kérem adja meg a streamek számát!";
+
+            }
+            if (copiesSoldTXT.Text.Trim() == "")
+            {
+                errorMSG += "Kérem adja meg az eladott másolatok számát!";
+
+            }
+            if (genreTXT.Text.Trim() == "")
+            {
+                errorMSG += "Kérem adja meg az album műfaját!";
+
+            }
+            if (rbExplicitNo.IsChecked == false && rbExplicitYes.IsChecked == false)
+            {
+                errorMSG += "Kérem válassza ki az album korhatárosságát!";
+
+            }
+            if (trackListTXT.Text.Trim() == "")
+            {
+                errorMSG += "Kérem adja meg az albumon lévő zenék neveit!";
+
+            }
+
+            if (errorMSG == "")
+            {
+                string jsonString = JsonSerializer.Serialize(albums, new JsonSerializerOptions
+                {
+                    WriteIndented = true
+                });
+                using (StreamWriter sw = new StreamWriter("albums.json"))
+                {
+                    sw.Write(jsonString);
+                }
+                MessageBox.Show("Sikeres felvétel!");
+                albumNameTXT.Text = "";
+                artistNameTXT.Text = "";
+                releaseDateTXT.Text = "";
+                priceTXT.Text = "";
+                streamsTXT.Text = "";
+                copiesSoldTXT.Text = "";
+                genreTXT.Text = "";
+                rbExplicitNo.IsChecked = false;
+                rbExplicitYes.IsChecked = false;
+                trackListTXT.Text = "";
+            }
 
         }
     }
