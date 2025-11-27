@@ -37,6 +37,12 @@ namespace Lemezkiado
 
         }
 
+        private void updateBtnClick(object sender, RoutedEventArgs e)
+        {
+            srcMenu.Visibility = Visibility.Visible;
+            newAlbumMenu.Visibility = Visibility.Collapsed;
+
+        }
         private void newAlbumBtnClick(object sender, RoutedEventArgs e)
         {
             newAlbumMenu.Visibility = Visibility.Visible;
@@ -67,7 +73,7 @@ namespace Lemezkiado
             return false;
         }
 
-        protected void srcBoxTextChanged(object sender, TextChangedEventArgs e)
+        private void srcBoxTextChanged(object sender, TextChangedEventArgs e)
         {
             List<Album> filteredAlbums = new List<Album>();
             if (albumsListBox == null) return;
