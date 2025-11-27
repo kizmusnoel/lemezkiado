@@ -27,7 +27,6 @@ namespace Lemezkiado
             InitializeComponent();
             srcMenu.Visibility = Visibility.Visible;
             newAlbumMenu.Visibility = Visibility.Collapsed;
-            albums.Sort();
             albumsListBox.ItemsSource = albums;
 
         }
@@ -39,12 +38,7 @@ namespace Lemezkiado
 
         }
 
-        private void updateBtnClick(object sender, RoutedEventArgs e)
-        {
-            srcMenu.Visibility = Visibility.Visible;
-            newAlbumMenu.Visibility = Visibility.Collapsed;
-
-        }
+     
         private void newAlbumBtnClick(object sender, RoutedEventArgs e)
         {
             newAlbumMenu.Visibility = Visibility.Visible;
@@ -94,7 +88,7 @@ namespace Lemezkiado
 
         }
 
-        private void updateBtn_Click(object sender, RoutedEventArgs e)
+        private void updateBtnClick(object sender, RoutedEventArgs e)
         {
             var errorMSG = "";
             if (albumNameTXT.Text.Trim() == "")
@@ -166,6 +160,22 @@ namespace Lemezkiado
                 trackListTXT.Text = "";
             }
 
+        }
+
+        private void albumsListBoxSelected(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in albums)
+            {
+                if (item.id == Convert.ToInt32(albumsListBox.SelectedValue)) {
+                    albumData.Content =
+                        $"Ár: {item.price} $\n" +
+                        $"Streamelések: {item.streams}\n" +
+                        $"Fizikai eladások: {item.copiesSold}\n" +
+                        $"Műfaj: {item.genre}\n";
+                    albumSongs.ItemsSource = item.trackList;
+                }
+                
+            }
         }
     }
 }

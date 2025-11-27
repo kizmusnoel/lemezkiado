@@ -23,7 +23,7 @@ namespace Lemezkiado
         public bool explicitAlbum { get; set; }
         public string[] trackList { get; set; } = [];
 
-        public string Display => $"{albumName} ({releaseDate}) - {artistName}";
+        public string Display => $"{(explicitAlbum ? "[E]" : "")} {albumName} ({releaseDate}) - {artistName}";
 
         public static List<Album> LoadFromJson(string filename)
         {

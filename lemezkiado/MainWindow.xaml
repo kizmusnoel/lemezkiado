@@ -33,7 +33,9 @@
             <TextBox TextChanged="srcBoxTextChanged" HorizontalAlignment="Left" Name="srcBox" Opacity="0.6" LostFocus="srcBoxLostFocus" GotFocus="srcBoxGotFocus" Margin="48,76,0,0" TextWrapping="Wrap" Text="Keresés..." VerticalAlignment="Top" FontSize="20" Width="325" Height="30"/>
 
             <ListBox Name="albumsListBox" Margin="48,106,457,68" DisplayMemberPath="Display"
-         SelectedValuePath="id" Background="#0D1F22" FontWeight="Bold"/>
+         SelectedValuePath="id" Background="#0D1F22" FontWeight="Bold" SelectionChanged="albumsListBoxSelected"/>
+            <Label FontSize="15" Content="Album data" Name="albumData" HorizontalAlignment="Left" Margin="415,78,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <ListBox Name="albumSongs" Margin="415,182,67,68" Background="#0D1F22"/>
 
         </Grid>
 
