@@ -4,6 +4,41 @@
              xmlns:local="clr-namespace:lemezkiado"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="{x:Type ListBox}">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="6"/>
+                </Style>
+            </Style.Resources>
+            <Setter Property="Padding" Value="2,4"/>
+
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="6"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+
+                </Style>
+            </Style.Resources>
+            <Setter Property="Background" Value="#3C5233"/>
+            <Setter Property="Padding" Value="5,15"/>
+            <Setter Property="Foreground" Value="White"/>
+
+        </Style>
+        
     </Application.Resources>
 </Application>

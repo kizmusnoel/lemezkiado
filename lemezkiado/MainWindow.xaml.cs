@@ -55,7 +55,7 @@ namespace Lemezkiado
         private void srcBoxGotFocus(object sender, RoutedEventArgs e)
         {
             srcBox.Text = "";
-            srcBox.Opacity = 1;
+            srcBox.Opacity = 0.9;
         }
 
         private void srcBoxLostFocus(object sender, RoutedEventArgs e)

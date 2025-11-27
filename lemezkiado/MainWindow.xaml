@@ -5,111 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lemezkiado"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="830">
-    <Window.Resources>
+        Title="MainWindow" Height="500" Width="830" MaxHeight="500" MaxWidth="830" MinHeight="500" MinWidth="830" Background="#264027" FontFamily="Lato" Foreground="White">
 
-        <Style x:Key="CleanButton" TargetType="Button">
-            <Setter Property="Background" Value="#FF6446B9"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Padding" Value="8,4"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Cursor" Value="Hand"/>
 
-            <!-- The important part: clean template -->
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border x:Name="border"
-                            Background="{TemplateBinding Background}"
-                            CornerRadius="6"
-                            Padding="{TemplateBinding Padding}">
-                            <ContentPresenter HorizontalAlignment="Center"
-                                          VerticalAlignment="Center"/>
-                        </Border>
 
-                        <ControlTemplate.Triggers>
-                            <!-- Hover effect -->
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="Opacity" Value="0.85"/>
-                            </Trigger>
-
-                            <!-- Pressed effect -->
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter TargetName="border" Property="Opacity" Value="0.65"/>
-                            </Trigger>
-
-                            <!-- Disabled -->
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="border" Property="Opacity" Value="0.4"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-    </Window.Resources>
-
-    <Window.Background>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#FFD173FF" Offset="0" />
-            <GradientStop Color="#FF1C3B70" Offset="1" />
-        </LinearGradientBrush>
-    </Window.Background>
 
     <Grid>
 
+        <Rectangle HorizontalAlignment="Left" Height="1" Margin="-5,40,0,0" Stroke="White" VerticalAlignment="Top" Width="844"/>
 
-        <Button  Content="Új album felvétele" Click="newAlbumBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Microsoft JhengHei UI" Width="222" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" BorderBrush="White" BorderThickness="0,0,2,2" Margin="221,0,0,0">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF6446B9"/>
-                    <GradientStop Color="#FF153071" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
+        <Button Background="#6F732F" Content="Új album felvétele" Click="newAlbumBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="222" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="204,0,0,0">
+
 
         </Button>
-        <Button  Content="Keresés" Click="srcBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Microsoft JhengHei UI" Width="221" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" BorderBrush="White" BorderThickness="0,0,2,2">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF6446B9"/>
-                    <GradientStop Color="#FF153071" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
+        <Button Background="#6F732F" Content="Keresés" Click="srcBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="221" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="-5,0,0,0">
+
 
         </Button>
-        <Rectangle HorizontalAlignment="Left" Height="412" Margin="609,-203,0,0" Stroke="white" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.5,0.5" StrokeThickness="2">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="#FFCB5CED" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
 
-        <Button HorizontalAlignment="Left" Margin="767,6,0,0" VerticalAlignment="Top" Height="25" Width="26" Name="langBtn" Background="LightCyan">
+
+        <Button HorizontalAlignment="Left" Margin="767,6,0,0" VerticalAlignment="Top" Height="25" Width="26" Name="langBtn" Background="#FFC857">
             <Image Source="/img/language.png"/>
         </Button>
-        <Grid Name="srcMenu" Height="450" Width="800" >
 
-            <TextBox TextChanged="srcBoxTextChanged" HorizontalAlignment="Left" Name="srcBox" Opacity="0.6" LostFocus="srcBoxLostFocus" GotFocus="srcBoxGotFocus" Margin="48,76,0,0" TextWrapping="Wrap" Text="Keresés..." VerticalAlignment="Top" FontSize="20" Width="295" Height="30"/>
+        <Grid Name="srcMenu" Height="500" Width="830">
+
+            <TextBox TextChanged="srcBoxTextChanged" HorizontalAlignment="Left" Name="srcBox" Opacity="0.6" LostFocus="srcBoxLostFocus" GotFocus="srcBoxGotFocus" Margin="48,76,0,0" TextWrapping="Wrap" Text="Keresés..." VerticalAlignment="Top" FontSize="20" Width="325" Height="30"/>
 
             <ListBox Name="albumsListBox" Margin="48,106,457,68" DisplayMemberPath="Display"
-         SelectedValuePath="id"/>
+         SelectedValuePath="id" Background="#0D1F22" FontWeight="Bold"/>
 
         </Grid>
 
-        <Grid Height="370" Width="500" Name="newAlbumMenu" Margin="12,50,0,0"  Visibility="Collapsed">
+        <Grid Height="370" Width="500" Name="newAlbumMenu" Margin="12,50,0,0" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
