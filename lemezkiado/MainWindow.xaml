@@ -61,9 +61,8 @@
 
     <Grid>
 
-        <TextBox HorizontalAlignment="Left" Margin="50,79,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
-        <Button  Content="Új album felvétele" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Microsoft JhengHei UI" Width="222" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" BorderBrush="White" BorderThickness="0,0,2,2" Margin="221,0,0,0">
+        <Button  Content="Új album felvétele" Click="newAlbumBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Microsoft JhengHei UI" Width="222" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" BorderBrush="White" BorderThickness="0,0,2,2" Margin="221,0,0,0">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF6446B9"/>
@@ -102,17 +101,61 @@
             <Button.Content>
                 <Image Source="/img/language.png"/>
             </Button.Content>
-            
+
         </Button>
-        <Viewbox Name="srcMenu">
-            
-        <Label Content="Kereses" Name="lbl1" HorizontalAlignment="Left" Margin="130,146,0,0" VerticalAlignment="Top"/>
-        </Viewbox>
+        <Grid Name="srcMenu" Height="450" Width="800">
 
-        <Viewbox Name="newAlbumMenu">
+            <TextBox TextChanged="srcBoxTextChanged" HorizontalAlignment="Left" Name="srcBox" Opacity="0.6" GotFocus="srcBoxGotFocus" Margin="48,76,0,0" TextWrapping="Wrap" Text="Keresés..." VerticalAlignment="Top" FontSize="20" Width="295" Height="30"/>
 
-            <Label Content="Uj" Name="lbl2" HorizontalAlignment="Left" Margin="130,,0,0" VerticalAlignment="Top"/>
-        </Viewbox>
+            <ListBox Name="albumsListBox" Margin="48,106,457,68" DisplayMemberPath="albumName"
+         SelectedValuePath="id"/>
+
+        </Grid>
+
+        <Grid Visibility="Collapsed" Height="350" Width="500" Name="newAlbumMenu" Margin="12,50,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Új album felvétele" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Content="Album neve: " FontWeight="Bold" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16"/>
+            <Label Content="Eloado neve: " FontWeight="Bold" Grid.Row="2" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16"/>
+            <Label Content="megjelenes eve: " FontWeight="Bold" Grid.Row="3" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16"/>
+            <Label Content="ar: " FontWeight="Bold" Grid.Row="4" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16"/>
+            <Label Content="streamek: " FontWeight="Bold" Grid.Row="5" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16"/>
+            <Label Content="eladott masolatok: " FontWeight="Bold" Grid.Row="6" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16"/>
+            <Label Content="mufaj: " FontWeight="Bold" Grid.Row="7" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16"/>
+            <Label Content="explicit: " FontWeight="Bold" Grid.Row="8" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16"/>
+            <Label Content="szamok listaja (vesszovel elvalasztva): " FontWeight="Bold" Grid.Row="9" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16"/>
+
+            <TextBox Name="albumNameTXT" Grid.Row="1" Margin="5,1,15,4" Grid.Column="1"/>
+            <TextBox Name="artistNameTXT" Grid.Row="2" Margin="5,1,15,4" Grid.Column="1"/>
+            <TextBox Name="releaseDateTXT" Grid.Row="3" Margin="5,1,15,4" Grid.Column="1"/>
+            <TextBox Name="priceTXT" Grid.Row="4" Margin="5,1,15,4" Grid.Column="1"/>
+            <TextBox Name="streamsTXT" Grid.Row="5" Margin="5,1,15,4" Grid.Column="1"/>
+            <TextBox Name="copiesSoldTXT" Grid.Row="6" Margin="5,1,15,4" Grid.Column="1"/>
+            <TextBox Name="genreTXT" Grid.Row="7" Margin="5,1,15,4" Grid.Column="1"/>
+            <WrapPanel Grid.Row="8" Grid.Column="1" VerticalAlignment="Center">
+                <RadioButton Name="rbExplicitYes" Content="Igen" VerticalAlignment="Center"/>
+                <RadioButton x:Name="rbExplicitNo" Content="Nem" VerticalAlignment="Center"/>
+            </WrapPanel>
+            <TextBox Name="trackListTXT" Grid.Row="9" FontSize="16" Margin="5,1,15,4" Grid.Column="1"/>
+
+        </Grid>
+
 
 
 
