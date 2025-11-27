@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lemezkiado"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="830">
     <Window.Resources>
 
         <Style x:Key="CleanButton" TargetType="Button">
@@ -80,7 +80,7 @@
             </Button.Background>
 
         </Button>
-        <Rectangle HorizontalAlignment="Left" Height="410" Margin="610,-202,0,0" Stroke="white" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.5,0.5" StrokeThickness="2">
+        <Rectangle HorizontalAlignment="Left" Height="412" Margin="609,-203,0,0" Stroke="white" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.5,0.5" StrokeThickness="2">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -97,11 +97,8 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Button HorizontalAlignment="Left" Margin="469,3,0,0" VerticalAlignment="Top" Height="29" Width="29">
-            <Button.Content>
-                <Image Source="/img/language.png"/>
-            </Button.Content>
-
+        <Button HorizontalAlignment="Left" Margin="767,6,0,0" VerticalAlignment="Top" Height="25" Width="26" Name="langBtn" Background="LightCyan">
+            <Image Source="/img/language.png"/>
         </Button>
         <Grid Name="srcMenu" Height="450" Width="800" >
 

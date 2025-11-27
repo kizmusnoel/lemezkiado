@@ -9,6 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="img\language.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="img\language.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="albums.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
