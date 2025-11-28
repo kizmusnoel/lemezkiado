@@ -12,13 +12,13 @@
 
     <Grid>
 
-        <Rectangle HorizontalAlignment="Left" Height="1" Margin="-5,40,0,0" Stroke="White" VerticalAlignment="Top" Width="844"/>
+        <Rectangle HorizontalAlignment="Left" Height="1" Margin="-5,40,0,0" Stroke="#FFC857" VerticalAlignment="Top" Width="844"/>
 
-        <Button Background="#6F732F" Content="Új album felvétele" Click="newAlbumBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="222" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="204,0,0,0">
+        <Button Background="#6F732F" BorderBrush="#FFC857" BorderThickness="3" Content="Új album felvétele" Click="newAlbumBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="222" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="204,0,0,0">
 
 
         </Button>
-        <Button Background="#6F732F" Content="Keresés" Click="srcBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="221" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="-5,0,0,0">
+        <Button Background="#6F732F" BorderBrush="#FFC857" BorderThickness="3" Content="Keresés" Click="srcBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="221" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="-5,0,0,0">
 
 
         </Button>

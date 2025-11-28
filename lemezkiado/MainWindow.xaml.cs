@@ -48,13 +48,17 @@ namespace Lemezkiado
 
         private void srcBoxGotFocus(object sender, RoutedEventArgs e)
         {
-            srcBox.Text = "";
+            if (srcBox.Text == "Keresés...") srcBox.Text = "";
             srcBox.Opacity = 0.9;
         }
 
         private void srcBoxLostFocus(object sender, RoutedEventArgs e)
         {
             srcBox.Opacity = 0.6;
+            if (srcBox.Text == "")
+            {
+                srcBox.Text = "Keresés...";
+            }
         }
 
         public static bool AlbumHasText(Album album, string search)
@@ -73,7 +77,7 @@ namespace Lemezkiado
         {
             List<Album> filteredAlbums = new List<Album>();
             if (albumsListBox == null) return;
-            if (srcBox.Text == "") albumsListBox.ItemsSource = albums;
+            if (srcBox.Text == "" || srcBox.Text == "Keresés...") albumsListBox.ItemsSource = albums;
             else
             {
 
