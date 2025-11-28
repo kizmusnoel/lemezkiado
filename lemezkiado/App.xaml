@@ -21,6 +21,11 @@
 
         </Style>
         <Style TargetType="{x:Type Button}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseDirectlyOver" Value="True">
+                    <Setter Property="Background" Value="#4E6C40"/>
+                </Trigger>
+            </Style.Triggers>
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="6"/>

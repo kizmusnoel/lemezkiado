@@ -181,5 +181,17 @@ namespace Lemezkiado
                 
             }
         }
+
+        private void btnMouseEnter(object sender, MouseEventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.Opacity = 1.4;
+        }
+
+        private void btnMouseLeave(object sender, MouseEventArgs e)
+        {
+            Button btn = sender as Button;
+            btn.Opacity = 1;
+        }
     }
 }
