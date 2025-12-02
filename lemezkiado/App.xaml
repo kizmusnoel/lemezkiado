@@ -7,7 +7,7 @@
         <Style TargetType="{x:Type ListBox}">
             <Style.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
+                    <Setter Property="CornerRadius" Value="7"/>
                 </Style>
             </Style.Resources>
         </Style>
@@ -21,14 +21,9 @@
 
         </Style>
         <Style TargetType="{x:Type Button}">
-            <Style.Triggers>
-                <Trigger Property="IsMouseDirectlyOver" Value="True">
-                    <Setter Property="Background" Value="#4E6C40"/>
-                </Trigger>
-            </Style.Triggers>
             <Style.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="6"/>
+                    <Setter Property="CornerRadius" Value="2"/>
                 </Style>
             </Style.Resources>
             <Setter Property="Cursor" Value="Hand"/>
@@ -36,7 +31,7 @@
         <Style TargetType="{x:Type ListBoxItem}">
             <Style.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
+                    <Setter Property="CornerRadius" Value="7"/>
 
                 </Style>
             </Style.Resources>

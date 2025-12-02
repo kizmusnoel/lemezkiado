@@ -7,39 +7,30 @@
         mc:Ignorable="d"
         Title="Lemezkiadó" Height="500" Width="830" MaxHeight="500" MaxWidth="830" MinHeight="500" MinWidth="830" Background="#264027" FontFamily="Lato" Foreground="White">
 
-
-
-
     <Grid>
 
-        <Rectangle HorizontalAlignment="Left" Height="1" Margin="-5,40,0,0" Stroke="#FFC857" VerticalAlignment="Top" Width="844"/>
+        <Rectangle HorizontalAlignment="Left" Height="1" Margin="4,39,0,0" Stroke="#FFC857" VerticalAlignment="Top" Width="835"/>
 
-        <Button Background="#6F732F" MouseEnter="btnMouseEnter" MouseLeave="btnMouseLeave" Name="btn1" BorderBrush="#FFC857" BorderThickness="3" Content="Új album felvétele" Click="newAlbumBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="222" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="204,0,0,0">
-
-
-        </Button>
-        <Button Background="#6F732F" BorderBrush="#FFC857" Name="btn2" MouseEnter="btnMouseEnter" MouseLeave="btnMouseLeave" BorderThickness="3" Content="Keresés" Click="srcBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="221" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="-5,0,0,0">
+        <Button Background="#6F732F" MouseEnter="btnMouseEnter" MouseLeave="btnMouseLeave" Name="btn1" BorderBrush="#FFC857" BorderThickness="3 0 3 0" Content="Új album felvétele" Click="newAlbumBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="222" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="200,0,0,0"></Button>
+        <Button Background="#6F732F" BorderBrush="#FFC857" Name="btn2" MouseEnter="btnMouseEnter" MouseLeave="btnMouseLeave" BorderThickness="3 0 3 0" Content="Keresés" Click="srcBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="216" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="-10,0,0,0"></Button>
 
 
-        </Button>
-
-
-        <Button HorizontalAlignment="Left" Margin="767,6,0,0" VerticalAlignment="Top" Height="25" Width="26" Name="langBtn" Background="#FFC857">
+        <Button HorizontalAlignment="Left" Margin="767,6,0,0" VerticalAlignment="Top" Height="25" Width="26" Name="langBtn" Click="langBtnClick" Background="#FFC857">
             <Image Source="/img/language.png"/>
         </Button>
 
-        <Grid Name="srcMenu" Height="500" Width="830" Visibility="Collapsed">
+        <Grid Name="srcMenu" Height="500" Width="830">
 
-            <TextBox TextChanged="srcBoxTextChanged" HorizontalAlignment="Left" Name="srcBox" Opacity="0.6" LostFocus="srcBoxLostFocus" GotFocus="srcBoxGotFocus" Margin="48,76,0,0" TextWrapping="Wrap" Text="Keresés..." VerticalAlignment="Top" FontSize="20" Width="325" Height="30"/>
+            <TextBox TextChanged="srcBoxTextChanged" HorizontalAlignment="Left" Name="srcBox" Opacity="0.6" LostFocus="srcBoxLostFocus" GotFocus="srcBoxGotFocus" Margin="48,76,0,0" TextWrapping="Wrap" Text="Keresés albumok közt..." VerticalAlignment="Top" FontSize="20" Width="325" Height="30"/>
 
             <ListBox Name="albumsListBox" Margin="48,106,457,68" DisplayMemberPath="Display"
          SelectedValuePath="id" Background="#0D1F22" FontWeight="Bold" SelectionChanged="albumsListBoxSelected"/>
-            <Label FontSize="15" Content="Album data" Name="albumData" HorizontalAlignment="Left" Margin="415,78,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <ListBox Name="albumSongs" Margin="415,182,67,68" Background="#0D1F22"/>
+            <Label FontSize="15" Content="" Name="albumData" HorizontalAlignment="Left" Margin="415,78,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <ListBox Name="albumSongs" Margin="415,182,67,68" Background="#0D1F22" Visibility="Collapsed"/>
 
         </Grid>
 
-        <Grid Height="370" Width="500" Name="newAlbumMenu" Margin="12,50,0,0">
+        <Grid Height="370" Width="500" Name="newAlbumMenu" Margin="12,50,0,0"  Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>

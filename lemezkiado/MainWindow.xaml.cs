@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Globalization; // Add this at the top with other using directives
+using System.IO;
 using System.Text;
 using System.Text.Json;
 using System.Windows;
@@ -16,8 +17,10 @@ namespace Lemezkiado
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
+        static bool language = false; // false = HU, true = EN
 
         List<Album> albums = Album.LoadFromJson("albums.json");
 
@@ -28,14 +31,16 @@ namespace Lemezkiado
             srcMenu.Visibility = Visibility.Visible;
             newAlbumMenu.Visibility = Visibility.Collapsed;
             albumsListBox.ItemsSource = albums;
-
+            btn1.Background = "#6F732F".ToBrush();
+            btn2.Background = "#264027".ToBrush();
         }
 
         private void srcBtnClick(object sender, RoutedEventArgs e)
         {
             srcMenu.Visibility = Visibility.Visible;
             newAlbumMenu.Visibility = Visibility.Collapsed;
-
+            btn1.Background = "#6F732F".ToBrush();
+            btn2.Background = "#264027".ToBrush();
         }
 
      
@@ -43,12 +48,14 @@ namespace Lemezkiado
         {
             newAlbumMenu.Visibility = Visibility.Visible;
             srcMenu.Visibility = Visibility.Collapsed;
-
+            btn1.Background = "#264027".ToBrush();
+            btn2.Background = "#6F732F".ToBrush();
+            
         }
 
         private void srcBoxGotFocus(object sender, RoutedEventArgs e)
         {
-            if (srcBox.Text == "Keresés...") srcBox.Text = "";
+            if (srcBox.Text == "Keresés albumok közt..." || srcBox.Text == "Search among albums...") srcBox.Text = "";
             srcBox.Opacity = 0.9;
         }
 
@@ -57,7 +64,9 @@ namespace Lemezkiado
             srcBox.Opacity = 0.6;
             if (srcBox.Text == "")
             {
-                srcBox.Text = "Keresés...";
+                if (language) srcBox.Text = "Search among albums...";
+                else
+                    srcBox.Text = "Keresés albumok közt...";
             }
         }
 
@@ -77,7 +86,7 @@ namespace Lemezkiado
         {
             List<Album> filteredAlbums = new List<Album>();
             if (albumsListBox == null) return;
-            if (srcBox.Text == "" || srcBox.Text == "Keresés...") albumsListBox.ItemsSource = albums;
+            if (srcBox.Text == "" || srcBox.Text == "Keresés albumok közt..." ||srcBox.Text == "Search among albums...") albumsListBox.ItemsSource = albums;
             else
             {
 
@@ -185,12 +194,24 @@ namespace Lemezkiado
             foreach (var item in albums)
             {
                 if (item.id == Convert.ToInt32(albumsListBox.SelectedValue)) {
-                    albumData.Content =
-                        $"Ár: {item.price} $\n" +
-                        $"Streamelések: {item.streams}\n" +
-                        $"Fizikai eladások: {item.copiesSold}\n" +
-                        $"Műfaj: {item.genre}\n";
+                    if (language)
+                    {
+                        albumData.Content =
+                        $"Price: {item.price} $\n" +
+                        $"Streams: {item.streams}\n" +
+                        $"Physical sales: {item.copiesSold}\n" +
+                        $"Genre: {item.genre}\n";
+                    } else
+                    {
+
+                        albumData.Content =
+                            $"Ár: {item.price} $\n" +
+                            $"Streamelések: {item.streams}\n" +
+                            $"Fizikai eladások: {item.copiesSold}\n" +
+                            $"Műfaj: {item.genre}\n";
+                    }
                     albumSongs.ItemsSource = item.trackList;
+                    albumSongs.Visibility = Visibility.Visible;
                 }
                 
             }
@@ -206,6 +227,34 @@ namespace Lemezkiado
         {
             Button btn = sender as Button;
             btn.Opacity = 1;
+        }
+
+        private void langBtnClick(object sender, RoutedEventArgs e)
+        {
+            language = !language;
+            albumsListBoxSelected(null, null);
+            if (language)
+            {
+                srcBox.Text = "Search among albums...";
+                btn2.Content = "Search";
+                btn1.Content = "Add New Album";
+                updateBtn.Content = "Add Album";
+            }
+            else
+            {
+                srcBox.Text = "Keresés albumok közt...";
+                btn2.Content = "Keresés";
+                btn1.Content = "Új album felvétele";
+                updateBtn.Content = "Album hozzáadása";
+            }
+        }
+    }
+
+    public static class BrushExtensions
+    {
+        public static Brush ToBrush(this string hex)
+        {
+            return (SolidColorBrush)(new BrushConverter().ConvertFromString(hex));
         }
     }
 }
