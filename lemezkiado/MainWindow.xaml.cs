@@ -1,4 +1,5 @@
-﻿using System.Globalization; // Add this at the top with other using directives
+﻿using System.Collections.ObjectModel;
+using System.Globalization; // Add this at the top with other using directives
 using System.IO;
 using System.Text;
 using System.Text.Json;
@@ -22,7 +23,8 @@ namespace Lemezkiado
     {
         static bool language = false; // false = HU, true = EN
 
-        List<Album> albums = Album.LoadFromJson("albums.json");
+        static List<Album> loaded = Album.LoadFromJson("albums.json");
+        ObservableCollection<Album> albums = new ObservableCollection<Album>(loaded);
 
 
         public MainWindow()
@@ -118,13 +120,14 @@ namespace Lemezkiado
                 artistNameTXT.BorderBrush = Brushes.Red;
             }
             newAlbum.artistName = artistNameTXT.Text;
-            if (releaseDateTXT.Text.Trim() == "")
+            int.Parse(releaseDateTXT.Text);
+            if (releaseDateTXT.Text.Trim() == "" && int.TryParse(releaseDateTXT.Text, out int result) == true)
             {
                 errorMSG += "Kérem adja meg a megjelenés évét!";
                 releaseDateTXT.BorderBrush = Brushes.Red;
             }
             newAlbum.releaseDate = int.Parse(releaseDateTXT.Text);
-            if (priceTXT.Text.Trim() == "")
+            if (priceTXT.Text.Trim() == "" && int.TryParse(priceTXT.Text, out int result1) == true)
             {
                 errorMSG += "Kérem adja meg az album árát!";
                 priceTXT.BorderBrush = Brushes.Red;
@@ -190,7 +193,7 @@ namespace Lemezkiado
             }
             else
             {
-                lblError.Content = errorMSG;
+                MessageBox.Show(errorMSG);
             }
 
         }

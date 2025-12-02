@@ -47,7 +47,6 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
 
             <Label Name="lbl1" Content="Új album felvétele" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
@@ -74,7 +73,6 @@
             </WrapPanel>
             <TextBox Name="trackListTXT" Grid.Row="9" FontSize="16" Margin="5,1,15,4" Grid.Column="1"/>
             <Button Name="updateBtn" Grid.Row="10" Grid.ColumnSpan="2" FontSize="20" Content="Felvétel" Margin="20,0,20,0" Click="updateBtnClick"/>
-            <Label Name="lblError" Grid.Row="11" Grid.ColumnSpan="2" Foreground="Red"/>
         </Grid>
 
 
