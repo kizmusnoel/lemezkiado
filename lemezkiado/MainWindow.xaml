@@ -49,16 +49,16 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Label Content="Új album felvétele" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
-            <Label Content="Album neve: " FontWeight="Bold" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
-            <Label Content="Eloado neve: " FontWeight="Bold" Grid.Row="2" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
-            <Label Content="megjelenes eve: " FontWeight="Bold" Grid.Row="3" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
-            <Label Content="ar: " FontWeight="Bold" Grid.Row="4" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
-            <Label Content="streamek: " FontWeight="Bold" Grid.Row="5" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
-            <Label Content="eladott masolatok: " FontWeight="Bold" Grid.Row="6" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
-            <Label Content="mufaj: " FontWeight="Bold" Grid.Row="7" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
-            <Label Content="explicit: " FontWeight="Bold" Grid.Row="8" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
-            <Label Content="szamok listaja (vesszovel elvalasztva): " FontWeight="Bold" Grid.Row="9" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+            <Label Name="lbl1" Content="Új album felvétele" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            <Label Name="lbl2" Content="Album neve: " FontWeight="Bold" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+            <Label Name="lbl3" Content="Előadó neve: " FontWeight="Bold" Grid.Row="2" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+            <Label Name="lbl4" Content="Megjelenés éve: " FontWeight="Bold" Grid.Row="3" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+            <Label Name="lbl5" Content="Ár: " FontWeight="Bold" Grid.Row="4" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+            <Label Name="lbl6" Content="Streamek: " FontWeight="Bold" Grid.Row="5" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+            <Label Name="lbl7" Content="Fizikai eladások: " FontWeight="Bold" Grid.Row="6" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+            <Label Name="lbl8" Content="Műfaj: " FontWeight="Bold" Grid.Row="7" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+            <Label Name="lbl9" Content="Explicit: " FontWeight="Bold" Grid.Row="8" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
+            <Label Name="lbl10" Content="Számok listája (vesszővel elválasztva): " FontWeight="Bold" Grid.Row="9" Grid.Column="0" HorizontalAlignment="right" VerticalAlignment="Center" FontSize="16" Foreground="White"/>
 
             <TextBox Name="albumNameTXT" Grid.Row="1" Margin="5,1,15,4" Grid.Column="1"/>
             <TextBox Name="artistNameTXT" Grid.Row="2" Margin="5,1,15,4" Grid.Column="1"/>

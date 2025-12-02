@@ -239,6 +239,17 @@ namespace Lemezkiado
                 btn2.Content = "Search";
                 btn1.Content = "Add New Album";
                 updateBtn.Content = "Add Album";
+
+                lbl1.Content = "Add New Album";
+                lbl2.Content = "Album name: ";
+                lbl3.Content = "Artist name: ";
+                lbl4.Content = "Release year: ";
+                lbl5.Content = "Price ($): ";
+                lbl6.Content = "Streams: ";
+                lbl7.Content = "Physical sales: ";
+                lbl8.Content = "Genre: ";
+                lbl9.Content = "Explicit: ";
+                lbl10.Content = "Tracklist: *listbox gombbal*";
             }
             else
             {
@@ -246,6 +257,17 @@ namespace Lemezkiado
                 btn2.Content = "Keresés";
                 btn1.Content = "Új album felvétele";
                 updateBtn.Content = "Album hozzáadása";
+
+                lbl1.Content = "Új album felvétele";
+                lbl2.Content = "Album neve: ";
+                lbl3.Content = "Előadó neve: ";
+                lbl4.Content = "Megjelenés éve: ";
+                lbl5.Content = "Ár ($): ";
+                lbl6.Content = "Streamek: ";
+                lbl7.Content = "Fizikai eladások: ";
+                lbl8.Content = "Műfaj: ";
+                lbl9.Content = "Explicit: ";
+                lbl10.Content = "Számok listája: *listbox gombbal*";
             }
         }
     }
