@@ -19,7 +19,7 @@
             <Image Source="/img/language.png"/>
         </Button>
 
-        <Grid Name="srcMenu" Height="500" Width="830">
+        <Grid Name="srcMenu" Height="500" Width="830"  Visibility="Collapsed">
 
             <TextBox TextChanged="srcBoxTextChanged" HorizontalAlignment="Left" Name="srcBox" Opacity="0.6" LostFocus="srcBoxLostFocus" GotFocus="srcBoxGotFocus" Margin="48,76,0,0" TextWrapping="Wrap" Text="Keresés albumok közt..." VerticalAlignment="Top" FontSize="20" Width="325" Height="30"/>
 
@@ -30,7 +30,7 @@
 
         </Grid>
 
-        <Grid Height="370" Width="500" Name="newAlbumMenu" Margin="12,50,0,0"  Visibility="Collapsed">
+        <Grid Height="370" Width="500" Name="newAlbumMenu" Margin="12,50,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
@@ -62,11 +62,11 @@
 
             <TextBox Name="albumNameTXT" Grid.Row="1" Margin="5,1,15,4" Grid.Column="1"/>
             <TextBox Name="artistNameTXT" Grid.Row="2" Margin="5,1,15,4" Grid.Column="1"/>
-            <TextBox Name="releaseDateTXT" Grid.Row="3" Margin="5,1,15,4" Grid.Column="1"/>
-            <TextBox Name="priceTXT" Grid.Row="4" Margin="5,1,15,4" Grid.Column="1"/>
-            <TextBox Name="streamsTXT" Grid.Row="5" Margin="5,1,15,4" Grid.Column="1"/>
-            <TextBox Name="copiesSoldTXT" Grid.Row="6" Margin="5,1,15,4" Grid.Column="1"/>
-            <TextBox Name="genreTXT" Grid.Row="7" Margin="5,1,15,4" Grid.Column="1"/>
+            <TextBox Name="releaseDateTXT" Grid.Row="3" Margin="5,1,142,4" Grid.Column="1"/>
+            <TextBox Name="priceTXT" Grid.Row="4" Margin="5,1,142,4" Grid.Column="1"/>
+            <TextBox Name="streamsTXT" Grid.Row="5" Margin="5,1,65,4" Grid.Column="1"/>
+            <TextBox Name="copiesSoldTXT" Grid.Row="6" Margin="5,1,65,4" Grid.Column="1"/>
+            <TextBox Name="genreTXT" Grid.Row="7" Margin="5,1,65,4" Grid.Column="1"/>
             <WrapPanel Grid.Row="8" Grid.Column="1" VerticalAlignment="Center">
                 <RadioButton Name="rbExplicitYes" Content="Igen" VerticalAlignment="Center" Foreground="White"/>
                 <RadioButton x:Name="rbExplicitNo" Content="Nem" VerticalAlignment="Center" Foreground="White"/>
