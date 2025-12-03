@@ -241,7 +241,7 @@ namespace Lemezkiado
         private void btnMouseEnter(object sender, MouseEventArgs e)
         {
             Button btn = sender as Button;
-            btn.Opacity = 1.4;
+            btn.Opacity = 0.7;
         }
 
         private void btnMouseLeave(object sender, MouseEventArgs e)
@@ -271,6 +271,8 @@ namespace Lemezkiado
                 lbl8.Content = "Genre: ";
                 lbl9.Content = "Explicit: ";
                 lbl10.Content = "Tracklist: *listbox gombbal*";
+                rbExplicitNo.Content = "No";
+                rbExplicitYes.Content = "Yes";
             }
             else
             {
@@ -289,6 +291,8 @@ namespace Lemezkiado
                 lbl8.Content = "Műfaj: ";
                 lbl9.Content = "Explicit: ";
                 lbl10.Content = "Számok listája: *listbox gombbal*";
+                rbExplicitNo.Content = "Nem";
+                rbExplicitYes.Content = "Igen";
             }
         }
     }
