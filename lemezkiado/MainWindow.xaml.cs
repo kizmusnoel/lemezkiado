@@ -259,6 +259,8 @@ namespace Lemezkiado
                 lbl8.Content = "Genre: ";
                 lbl9.Content = "Explicit: ";
                 lbl10.Content = "Tracklist: *listbox gombbal*";
+                rbExplicitNo.Content = "No";
+                rbExplicitYes.Content = "Yes";
             }
             else
             {
@@ -277,6 +279,8 @@ namespace Lemezkiado
                 lbl8.Content = "Műfaj: ";
                 lbl9.Content = "Explicit: ";
                 lbl10.Content = "Számok listája: *listbox gombbal*";
+                rbExplicitNo.Content = "Nem";
+                rbExplicitYes.Content = "Igen";
             }
         }
     }

@@ -17,7 +17,6 @@
                     <Setter Property="CornerRadius" Value="6"/>
                 </Style>
             </Style.Resources>
-            <Setter Property="Padding" Value="2,0"/>
 
         </Style>
         <Style TargetType="{x:Type Button}">
