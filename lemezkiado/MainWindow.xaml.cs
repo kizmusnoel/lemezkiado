@@ -178,7 +178,11 @@ namespace Lemezkiado
                 trackListTXT.BorderBrush = Brushes.Red;
             }
             newAlbum.trackList = trackListTXT.Text.Split(',');
-
+            for (int i = 0; i < newAlbum.trackList.Length; i++)
+            {
+                var thankYouBP = newAlbum.trackList[i].Trim();
+                newAlbum.trackList[i] = thankYouBP;
+            }
             if (errorMSG == "")
             {
                 albums.Add(newAlbum);
