@@ -234,6 +234,8 @@ namespace Lemezkiado
                     }
                     albumSongs.ItemsSource = item.trackList;
                     albumSongs.Visibility = Visibility.Visible;
+                    deleteAlbumBtn.Visibility = Visibility.Visible;
+
                 }
 
             }
@@ -271,7 +273,8 @@ namespace Lemezkiado
                 lbl7.Content = "Physical sales: ";
                 lbl8.Content = "Genre: ";
                 lbl9.Content = "Explicit: ";
-                lbl10.Content = "Tracklist: *listbox gombbal*";
+                lbl10.Content = "Tracklist (separated with commas): ";
+                deleteAlbumBtn.Content = "Delete Album";
                 rbExplicitNo.Content = "No";
                 rbExplicitYes.Content = "Yes";
             }
@@ -291,10 +294,27 @@ namespace Lemezkiado
                 lbl7.Content = "Fizikai eladások: ";
                 lbl8.Content = "Műfaj: ";
                 lbl9.Content = "Explicit: ";
-                lbl10.Content = "Számok listája: *listbox gombbal*";
+                lbl10.Content = "Számok listája (vesszővel elválasztva): ";
+                deleteAlbumBtn.Content = "Album törlése";
                 rbExplicitNo.Content = "Nem";
                 rbExplicitYes.Content = "Igen";
             }
+        }
+
+        private void deleteAlbumBtnClick(object sender, RoutedEventArgs e)
+        {
+            albums.Remove((Album)albumsListBox.SelectedItem);
+            string jsonString = JsonSerializer.Serialize(albums, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+            using (StreamWriter sw = new StreamWriter("albums.json"))
+            {
+                sw.Write(jsonString);
+            }
+            albumSongs.Visibility = Visibility.Collapsed;
+            albumData.Content = "";
+            deleteAlbumBtn.Visibility = Visibility.Collapsed;
         }
     }
 

@@ -39,7 +39,7 @@
             <Image Source="/img/language.png"/>
         </Button>
 
-        <Grid Name="srcMenu" Height="500" Width="830"  Visibility="Collapsed">
+        <Grid Name="srcMenu" Height="500" Width="830">
 
             <TextBox TextChanged="srcBoxTextChanged" HorizontalAlignment="Left" Name="srcBox" Opacity="0.6" LostFocus="srcBoxLostFocus" GotFocus="srcBoxGotFocus" Margin="48,76,0,0" TextWrapping="Wrap" Text="Keresés albumok közt..." VerticalAlignment="Top" FontSize="20" Width="325" Height="30"/>
 
@@ -47,10 +47,11 @@
          SelectedValuePath="id" Background="#0D1F22" FontWeight="Bold" SelectionChanged="albumsListBoxSelected"/>
             <Label FontSize="15" Content="" Name="albumData" HorizontalAlignment="Left" Margin="415,78,0,0" VerticalAlignment="Top" Foreground="White"/>
             <ListBox Name="albumSongs" Margin="415,182,67,68" Background="#0D1F22" Visibility="Collapsed"/>
+            <Button Content="Album törlése" Name="deleteAlbumBtn" Click="deleteAlbumBtnClick" HorizontalAlignment="Left" Margin="685,159,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
 
         </Grid>
 
-        <Grid Height="370" Width="500" Name="newAlbumMenu" Margin="12,50,0,0">
+        <Grid Height="370" Width="500" Name="newAlbumMenu" Margin="12,50,0,0" Visibility="Collapsed">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition/>
