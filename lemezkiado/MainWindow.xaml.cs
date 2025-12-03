@@ -45,14 +45,14 @@ namespace Lemezkiado
             btn2.Background = "#264027".ToBrush();
         }
 
-     
+
         private void newAlbumBtnClick(object sender, RoutedEventArgs e)
         {
             newAlbumMenu.Visibility = Visibility.Visible;
             srcMenu.Visibility = Visibility.Collapsed;
             btn1.Background = "#264027".ToBrush();
             btn2.Background = "#6F732F".ToBrush();
-            
+
         }
 
         private void srcBoxGotFocus(object sender, RoutedEventArgs e)
@@ -88,7 +88,7 @@ namespace Lemezkiado
         {
             List<Album> filteredAlbums = new List<Album>();
             if (albumsListBox == null) return;
-            if (srcBox.Text == "" || srcBox.Text == "Keresés albumok közt..." ||srcBox.Text == "Search among albums...") albumsListBox.ItemsSource = albums;
+            if (srcBox.Text == "" || srcBox.Text == "Keresés albumok közt..." || srcBox.Text == "Search among albums...") albumsListBox.ItemsSource = albums;
             else
             {
 
@@ -110,50 +110,60 @@ namespace Lemezkiado
             newAlbum.id = albums.Count + 1;
             if (albumNameTXT.Text.Trim() == "")
             {
-                errorMSG += "Kérem ajda meg az album nevét!";
+                errorMSG += "Kérem ajda meg az album nevét!\n";
                 albumNameTXT.BorderBrush = Brushes.Red;
             }
             newAlbum.albumName = albumNameTXT.Text;
             if (artistNameTXT.Text.Trim() == "")
             {
-                errorMSG += "Kérem adja meg az előadó nevét!";
+                errorMSG += "Kérem adja meg az előadó nevét!\n";
                 artistNameTXT.BorderBrush = Brushes.Red;
             }
-            newAlbum.artistName = artistNameTXT.Text;
-            int.Parse(releaseDateTXT.Text);
-            if (releaseDateTXT.Text.Trim() == "" && int.TryParse(releaseDateTXT.Text, out int result) == true)
+            if (releaseDateTXT.Text.Trim() == "" || !int.TryParse(releaseDateTXT.Text, out int result1))
             {
-                errorMSG += "Kérem adja meg a megjelenés évét!";
+                errorMSG += "Kérem adja meg a megjelenés évét!\n";
                 releaseDateTXT.BorderBrush = Brushes.Red;
             }
-            newAlbum.releaseDate = int.Parse(releaseDateTXT.Text);
-            if (priceTXT.Text.Trim() == "" && int.TryParse(priceTXT.Text, out int result1) == true)
+            else if (int.TryParse(releaseDateTXT.Text, out result1))
             {
-                errorMSG += "Kérem adja meg az album árát!";
+                newAlbum.releaseDate = result1;
+            }
+            if (priceTXT.Text.Trim() == "" || !float.TryParse(priceTXT.Text, out float result2))
+            {
+                errorMSG += "Kérem adja meg az album árát!\n";
                 priceTXT.BorderBrush = Brushes.Red;
             }
-            newAlbum.price = float.Parse(priceTXT.Text);
-            if (streamsTXT.Text.Trim() == "")
+            else if (float.TryParse(priceTXT.Text, out result2))
             {
-                errorMSG += "Kérem adja meg a streamek számát!";
+                newAlbum.price = result2;
+            }
+            if (streamsTXT.Text.Trim() == "" || !int.TryParse(streamsTXT.Text, out int result3))
+            {
+                errorMSG += "Kérem adja meg a streamek számát!\n";
                 streamsTXT.BorderBrush = Brushes.Red;
             }
-            newAlbum.streams = int.Parse(streamsTXT.Text);
-            if (copiesSoldTXT.Text.Trim() == "")
+            else if (int.TryParse(streamsTXT.Text, out result3))
             {
-                errorMSG += "Kérem adja meg az eladott másolatok számát!";
+                newAlbum.streams = result3;
+            }
+            if (copiesSoldTXT.Text.Trim() == "" || !int.TryParse(copiesSoldTXT.Text, out int result4))
+            {
+                errorMSG += "Kérem adja meg az eladott másolatok számát!\n";
                 copiesSoldTXT.BorderBrush = Brushes.Red;
             }
-            newAlbum.copiesSold = int.Parse(copiesSoldTXT.Text);
+            else if (int.TryParse(copiesSoldTXT.Text, out result4))
+            {
+                newAlbum.copiesSold = result4;
+            }
             if (genreTXT.Text.Trim() == "")
             {
-                errorMSG += "Kérem adja meg az album műfaját!";
+                errorMSG += "Kérem adja meg az album műfaját!\n";
                 genreTXT.BorderBrush = Brushes.Red;
             }
             newAlbum.genre = genreTXT.Text;
             if (rbExplicitNo.IsChecked == false && rbExplicitYes.IsChecked == false)
             {
-                errorMSG += "Kérem válassza ki az album korhatárosságát!";
+                errorMSG += "Kérem válassza ki az album korhatárosságát!\n";
                 rbExplicitNo.BorderBrush = Brushes.Red;
                 rbExplicitYes.BorderBrush = Brushes.Red;
             }
@@ -163,7 +173,7 @@ namespace Lemezkiado
                 newAlbum.explicitAlbum = false;
             if (trackListTXT.Text.Trim() == "")
             {
-                errorMSG += "Kérem adja meg az albumon lévő zenék neveit!";
+                errorMSG += "Kérem adja meg az albumon lévő zenék neveit!\n";
                 trackListTXT.BorderBrush = Brushes.Red;
             }
             newAlbum.trackList = trackListTXT.Text.Split(',');
@@ -202,7 +212,8 @@ namespace Lemezkiado
         {
             foreach (var item in albums)
             {
-                if (item.id == Convert.ToInt32(albumsListBox.SelectedValue)) {
+                if (item.id == Convert.ToInt32(albumsListBox.SelectedValue))
+                {
                     if (language)
                     {
                         albumData.Content =
@@ -210,7 +221,8 @@ namespace Lemezkiado
                         $"Streams: {item.streams}\n" +
                         $"Physical sales: {item.copiesSold}\n" +
                         $"Genre: {item.genre}\n";
-                    } else
+                    }
+                    else
                     {
 
                         albumData.Content =
@@ -222,20 +234,20 @@ namespace Lemezkiado
                     albumSongs.ItemsSource = item.trackList;
                     albumSongs.Visibility = Visibility.Visible;
                 }
-                
+
             }
         }
 
         private void btnMouseEnter(object sender, MouseEventArgs e)
         {
             Button btn = sender as Button;
-            btn.Opacity = 0.7;
+            btn.Opacity = 1.4;
         }
 
         private void btnMouseLeave(object sender, MouseEventArgs e)
         {
             Button btn = sender as Button;
-            btn.Opacity = 1.0;
+            btn.Opacity = 1;
         }
 
         private void langBtnClick(object sender, RoutedEventArgs e)
@@ -259,8 +271,6 @@ namespace Lemezkiado
                 lbl8.Content = "Genre: ";
                 lbl9.Content = "Explicit: ";
                 lbl10.Content = "Tracklist: *listbox gombbal*";
-                rbExplicitNo.Content = "No";
-                rbExplicitYes.Content = "Yes";
             }
             else
             {
@@ -279,11 +289,8 @@ namespace Lemezkiado
                 lbl8.Content = "Műfaj: ";
                 lbl9.Content = "Explicit: ";
                 lbl10.Content = "Számok listája: *listbox gombbal*";
-                rbExplicitNo.Content = "Nem";
-                rbExplicitYes.Content = "Igen";
             }
         }
-
     }
 
     public static class BrushExtensions
