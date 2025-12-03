@@ -119,6 +119,7 @@ namespace Lemezkiado
                 errorMSG += "Kérem adja meg az előadó nevét!\n";
                 artistNameTXT.BorderBrush = Brushes.Red;
             }
+            newAlbum.artistName = artistNameTXT.Text;
             if (releaseDateTXT.Text.Trim() == "" || !int.TryParse(releaseDateTXT.Text, out int result1))
             {
                 errorMSG += "Kérem adja meg a megjelenés évét!\n";
