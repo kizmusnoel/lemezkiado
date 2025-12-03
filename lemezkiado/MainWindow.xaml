@@ -6,13 +6,33 @@
         xmlns:local="clr-namespace:Lemezkiado"
         mc:Ignorable="d"
         Title="Lemezkiadó" Height="500" Width="830" MaxHeight="500" MaxWidth="830" MinHeight="500" MinWidth="830" Background="#264027" FontFamily="Lato" Foreground="White">
+    <Window.Resources>
+        <ControlTemplate x:Key="NoMouseOverButtonTemplate"   
+                 TargetType="Button">
+            <Border Background="{TemplateBinding Background}"  
+                  BorderBrush="{TemplateBinding BorderBrush}"  
+                  BorderThickness="{TemplateBinding BorderThickness}">
+                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  
+                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+            </Border>
 
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled"  
+             Value="False">
+                    <Setter Property="Background"  
+              Value="{x:Static SystemColors.ControlLightBrush}" />
+                    <Setter Property="Foreground"  
+              Value="{x:Static SystemColors.GrayTextBrush}" />
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
     <Grid>
 
         <Rectangle HorizontalAlignment="Left" Height="1" Margin="4,39,0,0" Stroke="#FFC857" VerticalAlignment="Top" Width="835"/>
 
-        <Button Background="#6F732F" MouseEnter="btnMouseEnter" MouseLeave="btnMouseLeave" Name="btn1" BorderBrush="#FFC857" BorderThickness="3 0 3 0" Content="Új album felvétele" Click="newAlbumBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="222" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="200,0,0,0"></Button>
-        <Button Background="#6F732F" BorderBrush="#FFC857" Name="btn2" MouseEnter="btnMouseEnter" MouseLeave="btnMouseLeave" BorderThickness="3 0 3 0" Content="Keresés" Click="srcBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="216" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="-10,0,0,0"></Button>
+        <Button Template="{StaticResource NoMouseOverButtonTemplate}" MouseEnter="btnMouseEnter" MouseLeave="btnMouseLeave" Background="#6F732F" Name="btn1" BorderBrush="#FFC857" BorderThickness="3 0 3 0" Content="Új album felvétele" Click="newAlbumBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="222" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="200,0,0,0"></Button>
+        <Button Template="{StaticResource NoMouseOverButtonTemplate}" MouseEnter="btnMouseEnter" MouseLeave="btnMouseLeave" Background="#6F732F" BorderBrush="#FFC857" Name="btn2" BorderThickness="3 0 3 0" Content="Keresés" Click="srcBtnClick" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontSize="20" Width="216" Height="40" Foreground="#FFFFECEC" FontWeight="Bold" HorizontalAlignment="Left" Margin="-10,0,0,0"></Button>
 
 
         <Button HorizontalAlignment="Left" Margin="767,6,0,0" VerticalAlignment="Top" Height="25" Width="26" Name="langBtn" Click="langBtnClick" Background="#FFC857">

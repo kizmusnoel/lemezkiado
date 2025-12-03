@@ -229,13 +229,13 @@ namespace Lemezkiado
         private void btnMouseEnter(object sender, MouseEventArgs e)
         {
             Button btn = sender as Button;
-            btn.Opacity = 1.4;
+            btn.Opacity = 0.7;
         }
 
         private void btnMouseLeave(object sender, MouseEventArgs e)
         {
             Button btn = sender as Button;
-            btn.Opacity = 1;
+            btn.Opacity = 1.0;
         }
 
         private void langBtnClick(object sender, RoutedEventArgs e)
@@ -283,6 +283,7 @@ namespace Lemezkiado
                 rbExplicitYes.Content = "Igen";
             }
         }
+
     }
 
     public static class BrushExtensions

@@ -31,7 +31,6 @@
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="7"/>
-
                 </Style>
             </Style.Resources>
             <Setter Property="Background" Value="#3C5233"/>
